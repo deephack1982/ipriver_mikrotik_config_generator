@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  ip: MyString
+  subnet: MyString
+  gateway: MyString
+  username: MyString
+  password: MyString
+
+two:
+  name: MyString
+  ip: MyString
+  subnet: MyString
+  gateway: MyString
+  username: MyString
+  password: MyString

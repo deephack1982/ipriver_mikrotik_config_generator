@@ -1,0 +1,47 @@
+<%= form_for(config) do |f| %>
+  <% if config.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(config.errors.count, "error") %> prohibited this config from being saved:</h2>
+
+      <ul>
+      <% config.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :system_name %>
+    <%= f.text_field :system_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :snmp_community %>
+    <%= f.text_field :snmp_community %>
+  </div>
+
+  <div class="field">
+    <%= f.label :snmp_address %>
+    <%= f.text_field :snmp_address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :snmp_contact %>
+    <%= f.text_field :snmp_contact %>
+  </div>
+
+  <div class="field">
+    <%= f.label :snmp_location %>
+    <%= f.text_field :snmp_location %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Configs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>System name</th>
+      <th>Password</th>
+      <th>Snmp community</th>
+      <th>Snmp address</th>
+      <th>Snmp contact</th>
+      <th>Snmp location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @configs.each do |config| %>
+      <tr>
+        <td><%= config.system_name %></td>
+        <td><%= config.password %></td>
+        <td><%= config.snmp_community %></td>
+        <td><%= config.snmp_address %></td>
+        <td><%= config.snmp_contact %></td>
+        <td><%= config.snmp_location %></td>
+        <td><%= link_to 'Show', config %></td>
+        <td><%= link_to 'Edit', edit_config_path(config) %></td>
+        <td><%= link_to 'Destroy', config, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Config', new_config_path %>

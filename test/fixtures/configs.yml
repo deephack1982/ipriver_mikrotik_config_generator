@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  system_name: MyString
+  password: MyString
+  snmp_community: MyString
+  snmp_address: MyString
+  snmp_contact: MyString
+  snmp_location: MyString
+
+two:
+  system_name: MyString
+  password: MyString
+  snmp_community: MyString
+  snmp_address: MyString
+  snmp_contact: MyString
+  snmp_location: MyString

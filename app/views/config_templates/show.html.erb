@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @config_template.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @config_template.description %>
+</p>
+
+<p>
+  <strong>Config text:</strong>
+  <%= @config_template.config_text %>
+</p>
+
+<%= link_to 'Edit', edit_config_template_path(@config_template) %> |
+<%= link_to 'Back', config_templates_path %>

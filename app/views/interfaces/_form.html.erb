@@ -1,0 +1,47 @@
+<%= form_for(interface) do |f| %>
+  <% if interface.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(interface.errors.count, "error") %> prohibited this interface from being saved:</h2>
+
+      <ul>
+      <% interface.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ip %>
+    <%= f.text_field :ip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :subnet %>
+    <%= f.text_field :subnet %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gateway %>
+    <%= f.text_field :gateway %>
+  </div>
+
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
