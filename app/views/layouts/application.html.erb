@@ -9,6 +9,9 @@
   </head>
 
   <body>
+  <% unless controller.controller_name == 'home' %>
+    <%= link_to 'back', home_index_path %>
+  <% end %>
     <%= yield %>
   </body>
 </html>

@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :config_template_id %>
+    <%= f.collection_select :config_template_id, ConfigTemplate.all, :id, :name, :prompt => "Select a template" %>
+  </div>
+
+  <div class="field">
     <%= f.label :system_name %>
     <%= f.text_field :system_name %>
   </div>
@@ -41,6 +46,29 @@
     <%= f.text_field :snmp_location %>
   </div>
 
+  <fieldset>
+    <table>
+    <%= f.fields_for :interfaces do |q| %>
+      <tr>
+        <td><%= "ether#{q.index + 1}" %></td>
+        <%= q.hidden_field :name, :value => "ether#{q.index + 1}" %>
+        <td><%= q.label :interface_type %></td>
+        <td><%= q.select :interface_type, Interface::TYPE, :prompt => "Select interface type" %></td>
+        <td><%= q.label :ip %></td>
+        <td><%= q.text_field :ip %></td>
+        <td><%= q.label :subnet %></td>
+        <td><%= q.text_field :subnet %></td>
+        <td><%= q.label :gateway %></td>
+        <td><%= q.text_field :gateway %></td>
+        <td><%= q.label :username %></td>
+        <td><%= q.text_field :username %></td>
+        <td><%= q.label :password %></td>
+        <td><%= q.text_field :password %></td>
+      </tr>
+    <% end %>
+    </table>
+  </fieldset>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

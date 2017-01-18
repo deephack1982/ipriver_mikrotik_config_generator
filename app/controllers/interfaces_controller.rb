@@ -69,6 +69,6 @@ class InterfacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interface_params
-      params.require(:interface).permit(:name, :ip, :subnet, :gateway, :username, :password)
+      params.require(:interface).permit(:config_id, :interface_type, :name, :ip, :subnet, :gateway, :username, :password)
     end
 end

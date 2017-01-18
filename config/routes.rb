@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'home/index'
+  root 'home#index'
+
   resources :configs
   resources :config_templates
   resources :interfaces

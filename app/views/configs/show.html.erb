@@ -30,5 +30,28 @@
   <%= @config.snmp_location %>
 </p>
 
+<table><tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>IP</th>
+  <th>Subnet</th>
+  <th>Gateway</th>
+  <th>Username</th>
+  <th>Password</th>
+</tr>
+  <% @config.interfaces.each do |i| %>
+      <tr>
+        <td><%= i.name %></td>
+        <td><%= i.interface_type %></td>
+        <td><%= i.ip %></td>
+        <td><%= i.subnet %></td>
+        <td><%= i.gateway %></td>
+        <td><%= i.username %></td>
+        <td><%= i.password %></td>
+      </tr>
+  <% end %>
+</table>
+</table>
+
 <%= link_to 'Edit', edit_config_path(@config) %> |
 <%= link_to 'Back', configs_path %>

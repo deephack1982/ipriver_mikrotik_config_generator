@@ -15,6 +15,9 @@ class ConfigsController < ApplicationController
   # GET /configs/new
   def new
     @config = Config.new
+    3.times do
+      @config.interfaces.build
+    end
   end
 
   # GET /configs/1/edit
@@ -69,6 +72,6 @@ class ConfigsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def config_params
-      params.require(:config).permit(:system_name, :password, :snmp_community, :snmp_address, :snmp_contact, :snmp_location)
+      params.require(:config).permit(:config_template_id, :system_name, :password, :snmp_community, :snmp_address, :snmp_contact, :snmp_location, interfaces_attributes: [:id, :name, :config_id, :interface_type, :ip, :subnet, :gateway, :username, :password])
     end
 end
