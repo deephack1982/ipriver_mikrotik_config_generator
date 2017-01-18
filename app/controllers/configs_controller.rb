@@ -1,5 +1,6 @@
 class ConfigsController < ApplicationController
-  before_action :set_config, only: [:show, :edit, :update, :destroy]
+  before_action :set_config, only: [:show, :edit, :update, :destroy, :generate]
+  include ConfigGenerator
 
   # GET /configs
   # GET /configs.json
@@ -62,6 +63,12 @@ class ConfigsController < ApplicationController
       format.html { redirect_to configs_url, notice: 'Config was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # GENERATE /configs/1/generate
+  def generate
+    send_data generate_rsc(@config), :filename => 'test.rsc'
+    # redirect_to @config, notice: 'Config generated'
   end
 
   private
