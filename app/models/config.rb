@@ -4,9 +4,9 @@ class Config < ApplicationRecord
 
   accepts_nested_attributes_for :interfaces
 
-  validates :real_snmp_address
+  validate :real_snmp_address
 
-  validates :snmp_community, :snmp_contact, :snmp_location, :password, :system_name present: true
+  validates :snmp_community, :snmp_contact, :snmp_location, :password, :system_name, presence: true
 
   def real_snmp_address
     if snmp_address.present? and not IPAddress.valid? snmp_address
