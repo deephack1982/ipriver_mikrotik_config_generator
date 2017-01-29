@@ -29,10 +29,8 @@ ActiveRecord::Schema.define(version: 20170117235021) do
     t.string   "snmp_location"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.integer  "template_id"
     t.integer  "config_template_id"
     t.index ["config_template_id"], name: "index_configs_on_config_template_id", using: :btree
-    t.index ["template_id"], name: "index_configs_on_template_id", using: :btree
   end
 
   create_table "interfaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

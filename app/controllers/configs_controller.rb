@@ -67,7 +67,7 @@ class ConfigsController < ApplicationController
 
   # GENERATE /configs/1/generate
   def generate
-    send_data generate_rsc(@config), :filename => 'test.rsc'
+    send_data generate_rsc(@config), :filename => "#{@config.system_name}.rsc"
     # redirect_to @config, notice: 'Config generated'
   end
 
