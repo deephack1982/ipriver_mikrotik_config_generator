@@ -12,7 +12,7 @@
 
 <p>
   <strong>Config text:</strong>
-  <%= @config_template.config_text %>
+  <%= simple_format(@config_template.config_text) %>
 </p>
 
 <%= link_to 'Edit', edit_config_template_path(@config_template) %> |
