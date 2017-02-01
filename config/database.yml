@@ -13,13 +13,13 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password: xerxes2002
+  username: markd
+  password: r#X4yaN6
   socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: ipriver_mikrotik_config_generator_development
+  database: markd
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
