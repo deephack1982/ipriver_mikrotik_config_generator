@@ -14,15 +14,22 @@ $(document).ready ->
           $("#config_interfaces_attributes_#{i}_gateway").attr("disabled", true)
           $("#config_interfaces_attributes_#{i}_username").attr("disabled", false)
           $("#config_interfaces_attributes_#{i}_password").attr("disabled", false)
-        if $("#config_interfaces_attributes_#{i}_interface_type").val() is "ethernet"
-          console.log("Interface #{$(this).id} type is ethernet")
+        if $("#config_interfaces_attributes_#{i}_interface_type").val() in ['ethernet-wan','sfp-wan']
+          console.log("Interface #{$(this).id} type is ethernet-wan")
           $("#config_interfaces_attributes_#{i}_ip").attr("disabled", false)
           $("#config_interfaces_attributes_#{i}_subnet").attr("disabled", false)
           $("#config_interfaces_attributes_#{i}_gateway").attr("disabled", false)
           $("#config_interfaces_attributes_#{i}_username").attr("disabled", true)
           $("#config_interfaces_attributes_#{i}_password").attr("disabled", true)
+        if $("#config_interfaces_attributes_#{i}_interface_type").val() is "ethernet-lan"
+          console.log("Interface #{$(this).id} type is ethernet-lan")
+          $("#config_interfaces_attributes_#{i}_ip").attr("disabled", false)
+          $("#config_interfaces_attributes_#{i}_subnet").attr("disabled", false)
+          $("#config_interfaces_attributes_#{i}_gateway").attr("disabled", true)
+          $("#config_interfaces_attributes_#{i}_username").attr("disabled", true)
+          $("#config_interfaces_attributes_#{i}_password").attr("disabled", true)
         if $("#config_interfaces_attributes_#{i}_interface_type").val() is "unused"
-          console.log("Interface #{$(this).id} type is ethernet")
+          console.log("Interface #{$(this).id} type is unused")
           $("#config_interfaces_attributes_#{i}_ip").attr("disabled", true)
           $("#config_interfaces_attributes_#{i}_subnet").attr("disabled", true)
           $("#config_interfaces_attributes_#{i}_gateway").attr("disabled", true)

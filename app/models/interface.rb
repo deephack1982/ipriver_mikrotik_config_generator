@@ -1,9 +1,13 @@
 class Interface < ApplicationRecord
   belongs_to :config
 
-  TYPE = ['unused','ppp','ethernet']
+  TYPE = ['unused','ppp','ethernet-wan','ethernet-lan','sfp-wan']
 
-  with_options if: "interface_type == 'ethernet'" do |ethernet|
+  with_options if: "interface_type == 'ethernet-wan'" || "interface_type == 'sfp-wan'" do |ethernet|
+    ethernet.validates :ip, :subnet, :gateway, presence: true
+  end
+
+  with_options if: "interface_type == 'ethernet-lan'" do |ethernet|
     ethernet.validates :ip, :subnet, presence: true
   end
 
