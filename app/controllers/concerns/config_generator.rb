@@ -5,7 +5,7 @@ module ConfigGenerator
     @output << "/user set admin password=#{@config.password}\n"
     @output << @config.config_template.config_text + "\n"
     # First interface definition
-    if @config.interfaces.first.interface_type == 'ethernet'
+    if @config.interfaces.first.interface_type == 'ethernet-wan' || @config.interfaces.first.interface_type == 'sfp-wan'
       @output << "/ip address add address=#{@config.interfaces.first.ip}/#{@config.interfaces.first.subnet} comment=WAN interface=ether1\n"
       @output << "/ip route add dst-address=0.0.0.0 gateway=#{@config.interfaces.first.gateway}\n"
       @output << "/ip firewall nat add action=masquerade chain=srcnat comment=masquerade out-interface=ether1\n"
@@ -22,16 +22,16 @@ module ConfigGenerator
       @output << "add action=drop chain=forward comment=\"defconf:  drop all from WAN not DSTNATed\" connection-nat-state=!dstnat connection-state=new in-interface=WAN\n"
     end
     # Second interface definition
-    if @config.interfaces.second.interface_type == 'ethernet'
+    if @config.interfaces.second.interface_type == 'ethernet-lan'
       @output << "/ip address add address=#{@config.interfaces.second.ip}/#{@config.interfaces.second.subnet} comment=LAN interface=ether2-master\n"
       @output << "/ip dns static add address=#{@config.interfaces.second.ip} name=router\n"
     end
     # Third interface definition
-    if @config.interfaces.third.interface_type == 'ethernet'
-      @output << "/ip address add address=#{@config.interfaces.third.ip}/#{@config.interfaces.third.subnet} comment=LAN interface=ether2-master\n"
+    if @config.interfaces.third.interface_type == 'ethernet-lan'
+      @output << "/ip address add address=#{@config.interfaces.third.ip}/#{@config.interfaces.third.subnet} comment=LAN interface=ether3\n"
       @output << "/ip dns static add address=#{@config.interfaces.third.ip} name=router\n"
     end
-    @output << "/system upgrade download-all reboot-after-download=yes\n"
+    @output << "/system upgrade download-all\n"
     return @output
   end
 end

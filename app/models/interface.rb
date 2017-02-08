@@ -15,7 +15,7 @@ class Interface < ApplicationRecord
       ppp.validates :username, :password, presence: true
   end
 
-  validate :real_ip_address, :real_gateway_address
+  validate :real_ip_address, :real_gateway_address, :real_subnet_definition
 
   def real_ip_address
     if ip.present? and not IPAddress.valid? ip
@@ -26,6 +26,12 @@ class Interface < ApplicationRecord
   def real_gateway_address
     if gateway.present? and not IPAddress.valid? gateway
       errors.add(:gateway, "Not valid gateway address")
+    end
+  end
+
+  def real_subnet_definition
+    if subnet.present? and not subnet.is_a? Integer and not subnet.length == 2
+      errors.add(:subnet, "Not a valid subnet, use CIDR notation")
     end
   end
 end
