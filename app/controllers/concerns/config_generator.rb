@@ -31,7 +31,6 @@ module ConfigGenerator
       @output << "/ip address add address=#{@config.interfaces.third.ip}/#{@config.interfaces.third.subnet} comment=LAN interface=ether3\n"
       @output << "/ip dns static add address=#{@config.interfaces.third.ip} name=router\n"
     end
-    @output << "/system upgrade download-all\n"
     return @output
   end
 end
