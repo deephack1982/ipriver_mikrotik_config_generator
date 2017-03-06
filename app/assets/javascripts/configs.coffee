@@ -1,7 +1,7 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-$(document).ready ->
+$(document).on "turbolinks:load", ->
     console.log("Script loaded")
     $("#config_interfaces_attributes_0_interface_type,#config_interfaces_attributes_1_interface_type,#config_interfaces_attributes_2_interface_type").on "change", ->
       console.log("Interface type changed")
